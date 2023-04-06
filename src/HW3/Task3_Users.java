@@ -1,6 +1,6 @@
 package HW3;
-import HW3.User;
-public class Main {
+
+public class Task3_Users {
     public static void main(String[] args) {
         User userKaty = new User("katy", "same", 26, User.Sex.FEMALE);
         User userVika = new User("vika", "nara", 49, User.Sex.MALE);
