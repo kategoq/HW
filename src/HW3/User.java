@@ -11,9 +11,7 @@ public class User {
         }
     }
 
-    enum Sex {MALE, FEMALE}
-
-    ;
+    enum Sex {MALE, FEMALE};
     private String name;
     private String surname;
     private int age;
