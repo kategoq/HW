@@ -11,5 +11,9 @@ public class Person {
     public String getFullName () {
         return this.name + " " + this.surname;
     }
+    public boolean equals (Object o) {
+        Person w = (Person) o;
+        return w.name.equals(this.name) && w.surname.equals(this.surname);
+    }
 
 }

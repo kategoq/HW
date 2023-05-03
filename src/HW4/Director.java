@@ -1,20 +1,20 @@
 package HW4;
 import java.util.ArrayList;
 public class Director extends Employee {
-    private ArrayList<Employee> workers;
 
-    public Director (String name, String surname, float coefficientOf, float workExperienceOf, float baseRateOf) {
-        super(name, surname, Position.DIRECTOR, coefficientOf, workExperienceOf, baseRateOf);
-        this.workers = new ArrayList<Employee>();
+
+
+    public Director (String name, String surname, float workExperienceOf) {
+        super(name, surname, Position.DIRECTOR, workExperienceOf);
     }
     public void setJobTitle (String jobTitle) {
         super.jobTitle = jobTitle;
 
     }
-    public void addWorker(Employee worker) {
-        this.workers.add(worker);
-
+    public void setBaseRate(float baseRate) {
+        this.baseRate = baseRate;
     }
+
     public float getSalary () {
         return super.getSalary() + this.workers.size() * 200;
     }

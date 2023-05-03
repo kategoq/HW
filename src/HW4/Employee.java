@@ -1,24 +1,43 @@
 package HW4;
 
+import java.util.ArrayList;
+
 public abstract class Employee extends Person {
     private Position position;
     protected String jobTitle;
     private float coefficient;
     private float workExperience;
+    protected float baseRate;
+    protected ArrayList<Employee> workers;
+    protected float fines;
+    private Employee boss;
 
-    private float baseRate;
 
-    public Employee(String name, String surname, Position positionOf, float coefficientOf, float workExperienceOf,float baseRateOf) {
+    public Employee(String name, String surname, Position positionOf, float workExperienceOf) {
         super(name,surname);
         this.position = positionOf;
-        this.coefficient = coefficientOf;
+        this.coefficient = positionOf.coefficient;
         this.workExperience = workExperienceOf;
-        this.baseRate = baseRateOf;
+        this.baseRate = positionOf.basic;
+        this.workers = new ArrayList<Employee>();
+    }
+    public Employee getBoss() {
+        return this.boss;
     }
     public abstract void setJobTitle (String jobTitle);
+    public void addFine(float sum) {
+        this.fines = this.fines + sum;
+
+    }
+
+    public void addWorker(Employee worker) {
+        this.workers.add(worker);
+        worker.boss = this;
+
+    }
 
     public float getSalary () {
-        return this.baseRate * this.workExperience * this.coefficient;
+        return this.baseRate * this.workExperience * this.coefficient - this.fines;
     }
     public String toString () {
         String strPosition = "";
